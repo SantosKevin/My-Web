@@ -1,0 +1,150 @@
+ <!-- Swiper -->
+ <div class="row bg-danger">
+   <div class="col-12">
+   
+   </div>
+ </div>
+ 
+<section id="testimony" class="my-5 pb-5">
+  <div class="container">
+    <div class="row pt-5 pb-5">
+      <div class="col-12">
+        <h1 class="text-center title">What my clients say about me</h1>
+      </div>
+    </div>
+
+   
+
+    <div class="row">
+      <!--
+      <div class="col-12 bg-danger">
+        <div class="swiper-container" [swiper]="config">
+          <div class="swiper-wrapper"  >
+            <div class="swiper-slide" *ngFor="let tst of testimonies">
+              <div class="card p-2">
+                <div class="row no-gutters">
+                  <div class="col-md-3 align-self-center img-client">
+                    <img [src]="tst.profile" class="card-img img-fluid rounded-circle" alt="profile client">
+                  </div>
+                  <div class="col-md-9">
+                    <div class="card-body">
+                      <h5 class="card-title font-weight-bold">{{tst.fullName}}</h5>
+                      <p class="card-text">{{tst.commentary}}</p>
+                      <p class="card-text"><small class="text-muted">Commented {{ tst.datePosted | hourCommentary}}</small>
+                      </p>
+                      <span class="pais mr-2">{{tst.country.name}}</span>
+                      <span class="pais"><img src="https://flagcdn.com/16x12/{{tst.country.alpha2Code | lowercase}}.png"
+                          alt="img country"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>-->
+
+      <div class="col-12 col-md-6 mb-5" *ngFor="let tst of testimonies">
+        <div class="card p-2">
+          <div class="row no-gutters">
+            <div class="col-md-3 align-self-center img-client">
+              <img [src]="tst.profile" class="card-img img-fluid rounded-circle" alt="profile client">
+            </div>
+            <div class="col-md-9">
+              <div class="card-body">
+                <h5 class="card-title font-weight-bold">{{tst.fullName}}</h5>
+                <p class="card-text">{{tst.commentary}}</p>
+                <p class="card-text"><small class="text-muted">Commented {{ tst.datePosted | hourCommentary}}</small>
+                </p>
+                <span class="pais mr-2">{{tst.country.name}}</span>
+                <span class="pais"><img src="https://flagcdn.com/16x12/{{tst.country.alpha2Code | lowercase}}.png"
+                    alt="img country"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row my-5">
+      <div class="col-12">
+        <h4>Hey! Add a comment for this web page :D</h4>
+        <a class="btn btn-comment" (click)="openVerticallyCentered(content)">Add a Comment <i
+            class="fas fa-comment"></i> </a>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header bg-dark-modal">
+      <h4 class="modal-title text-white">Add A Comment</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="false"><i class="fas fa-times text-white"></i></span>
+      </button>
+    </div>
+    <div class="modal-body bg-light-modal">
+      <form class="" #formCommentary="ngForm">
+
+        <div class="container-fluid">
+          <div class="row form-group">
+            <label class="col-sm-12 col-md-4 font-weight-bold text-left" for="txtName">Full Name: </label>
+            <input class="form-control col-sm-12 col-md-8" #name="ngModel" type="text" id="txtName" name="txtName"
+              [(ngModel)]="testimony.fullName" placeholder="Name Lastname..." required />
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+              class="mt-1 text-danger p-0 col-sm-12 offset-md-4 col-md-8">
+              <div *ngIf="name.errors.required"> Your Name is required.</div>
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-sm-12 col-md-4 font-weight-bold text-left" for="txtCommentary">Commentary: </label>
+            <textarea class="form-control col-sm-12 col-md-8" #comm="ngModel" cols="30" rows="3" maxlength="80"
+              type="text" id="txtCommentary" name="txtCommentary" [(ngModel)]="testimony.commentary"
+              placeholder="Your comment here..." required></textarea>
+
+            <div *ngIf="comm.invalid && (comm.dirty || comm.touched)"
+              class="text-danger mt-1 text-left pl-0 col-sm-12 offset-md-4 col-md-8">
+              <div *ngIf="comm.errors.required"> The comment is necesary.</div>
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-sm-12 col-md-4 font-weight-bold text-left" for="profile">Your Profile: </label>
+            <div class="custom-input-file col-sm-12 col-md-8">
+              <input class="form-control input-file" #profile="ngModel" type="text" id="profile" name="profile"
+                [(ngModel)]="testimony.profile" required type="file" alife-file-to-base64
+                (onFileChanged)="onFileChanges($event)" accept="image/x-png,image/gif,image/jpeg" />
+              <i class="fas fa-upload"></i> Upload Image...
+            </div>
+            <img class="col-sm-12 offset-md-4 col-md-8 img-fluid" [src]="imageSelected" alt="image profile selected">
+            <div *ngIf="profile.invalid && (profile.dirty || profile.touched)"
+              class="mt-1 text-left pl-0 text-danger col-sm-12 offset-md-4 col-md-8">
+              <div *ngIf="profile.errors.required"> The image is necesary.</div>
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-sm-12 col-md-4 font-weight-bold text-left" for="country">Country: </label>
+            <select class="form-control col-sm-12 col-md-8" id="country" required [(ngModel)]="testimony.country"
+              name="country" #country="ngModel">
+              <option *ngFor="let ct of countries" [ngValue]="ct">{{ct.name}}</option>
+            </select>
+            <div *ngIf="country.invalid && (country.dirty || country.touched)"
+              class="mt-1 text-danger p-0 col-sm-12 offset-md-4 col-md-8">
+              <div *ngIf="country.errors.required"> The country is required.</div>
+            </div>
+          </div>
+
+
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer bg-dark-modal">
+      <button type="button" class="btn btn-modal mx-2" (click)="addTestimony();formCommentary.reset()"
+        [disabled]="!(formCommentary.form.valid)"> Comment</button>
+
+      <button type="button" class="btn btn-modal" (click)="d('Cross click')">Close</button>
+    </div>
+  </ng-template>
+
+</section>

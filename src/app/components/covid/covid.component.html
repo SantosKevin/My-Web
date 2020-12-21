@@ -1,0 +1,110 @@
+<section id="covid">
+    <div class="container">
+
+        <div class="row pt-5 pb-5">
+            <div class="col-12">
+              <h1 class="text-center title mt-4">Covid Statistics Graphics</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center title mb-2">Latest Statistics All Word</h2>
+            </div>
+            <div class="col-12">
+                <div class="chart">
+                    <canvas id="graphicCovid"></canvas>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="row mt-5 mb-5">
+            <div class="col-12">
+                <h2 class="text-center title mb-2">Statistics By Date and Country</h2>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <h5 class="text-center title my-2">Select a Country</h5>
+                        <select class="form-control" id="country" required name="country"[(ngModel)]="country" >
+                            <option *ngFor="let ct of countries" [ngValue]="ct">{{ct.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <h5 class="text-center title my-2">Select Range Date</h5>
+                        <form class="form-inline justify-content-center text-center">
+                            <div class="form-group hidden justify-content-center text-center">
+                              <div class="input-group ">
+                                <input name="datepicker"
+                                       class="form-control"
+                                       ngbDatepicker
+                                       #datepicker="ngbDatepicker"
+                                       [autoClose]="'outside'"
+                                       (dateSelect)="onDateSelection($event)"
+                                       [displayMonths]="2"
+                                       [dayTemplate]="t"
+                                       [maxDate] = "maxDate"
+                                       [minDate] = "minDate"
+                                       outsideDays="hidden"
+                                       [startDate]="fromDate!"
+                                       tabindex="-1">
+                                <ng-template #t let-date let-focused="focused">
+                                  <span class="custom-day"
+                                        [class.focused]="focused"
+                                        [class.range]="isRange(date)"
+                                        [class.faded]="isHovered(date) || isInside(date)"
+                                        (mouseenter)="hoveredDate = date"
+                                        (mouseleave)="hoveredDate = null">
+                                    {{ date.day }}
+                                  </span>
+                                </ng-template>
+                              </div>
+                            </div>
+                            <div class="form-group ">
+                              <div class="input-group text-center">
+                                <input #dpFromDate
+                                       class="form-control" placeholder="yyyy-mm-dd"
+                                       name="dpFromDate"
+                                       [value]="formatter.format(fromDate)"
+                                       (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"><i class="far fa-calendar-alt"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group mt-1 mt-lg-0 ml-lg-2">
+                              <div class="input-group text-center" >
+                                <input #dpToDate
+                                       class="form-control" placeholder="yyyy-mm-dd"
+                                       name="dpToDate"
+                                       [value]="formatter.format(toDate)"
+                                       (input)="toDate = validateInput(toDate, dpToDate.value)">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"><i class="far fa-calendar-alt"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                    </div>
+                    <div class="col-12 my-2">
+                        <button class="btn btn-reload" (click)="refreshDataByCountry(country.alpha3Code)">Reload Graphic <i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="loading" class="col-12 justify-content-center text-center my-5">
+              <img src="../../../assets/images/loading.gif" class="img-fluid" alt="loading">
+            </div>
+            <div class="col-12">
+                <div class="chart">
+                    <canvas  id="graphicCovidByCountry"></canvas>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+    
+</section>
+

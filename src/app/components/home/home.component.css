@@ -1,0 +1,268 @@
+/*img home*/
+
+/*particles-js*/
+.box-image {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333333bb;
+  background: linear-gradient(to right, #dd1818b7, #333333bb), url(../../../assets/images/coverPage.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+#particle-js {
+  width: 100vw;
+  height: 100vh;
+}
+
+.welcome {
+  position: absolute;
+  width: 50%;
+  height: 35%;
+  background: transparent;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcome h1 {
+  text-align: center;
+  color: #fff;
+  font-weight: bold 700;
+}
+
+.welcome .line {
+  width: 100px;
+  height: 2px;
+  color: #fff;
+  background: #fff;
+  border: var(--myRed);
+  margin-top: 2px;
+}
+
+.welcome p {
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-home {
+  width: 170px;
+  background: var(--myRed);
+  border-radius: 22px;
+  border: none;
+  font-size: 1.3em;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.7s;
+  color: #fff;
+
+}
+
+.btn-home:hover {
+  background: var(--myBlue);
+  color: #fff;
+}
+
+
+.wave {
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+}
+
+/*About me*/
+
+.title {
+  color: var(--myDarkRed);
+  font-weight: bold;
+  font-style: italic;
+}
+
+/*Background gray*/
+.bg-gray {
+  background: var(--myGray);
+}
+
+/*new services*/
+.card-pers{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.imgBxCard1, .imgBxCard2{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(83, 83, 83, 0.959);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: .5s ease-in-out;
+}
+.imgBxCard1{
+  left: 0;
+}
+.imgBxCard2{
+  right: 0;
+}
+.card-pers:hover .imgBxCard1,
+.card-pers:hover .imgBxCard2{
+  width: 9.375rem;
+  height: 9.375rem;
+  top: calc(50% - 75px); 
+  transition: .5s ease-in-out;
+  background: var(--myDarkRed);
+}
+.card-pers:hover .imgBxCard1{
+  left: -75px;
+}
+.card-pers:hover .imgBxCard2{
+  right: -75px;
+}
+.card-pers .imgBxCard1::before,
+.card-pers .imgBxCard2::before{
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0; 
+  width: 100%;
+  text-align: center;
+  font-size: 5em;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.096);
+  font-weight: 700;
+}
+.imgBxCard1 img,.imgBxCard2 img{
+  max-width: 100px;
+  transition: .5 ease-in-out;
+}
+.card-pers:hover .imgBxCard1 img,.card-pers:hover .imgBxCard2 img{
+  max-width: 75px;
+}
+.card-pers .card-body{
+  position: relative;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 991px){
+  .card-pers{
+    width: 400px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 661px){
+  .card-pers{
+    max-width: 300px;
+    margin: auto;
+    flex-direction: column;
+    height: auto;
+  }
+  .imgBxCard1, .imgBxCard2{
+    position: relative;
+  }
+  .card-pers .imgBxCard1,
+  .card-pers:hover .imgBxCard1{
+    width: 100%;
+    height: 200px;
+    left:0;
+  }
+  .card-pers .imgBxCard2,
+  .card-pers:hover .imgBxCard2{
+    width: 100%;
+    height: 200px;
+    right:0;
+  }
+  .card-pers .imgBxCard1 img,
+  .card-pers:hover .imgBxCard1 img,
+  .card-pers .imgBxCard2 img,
+  .card-pers:hover .imgBxCard2 img{
+    max-width: 100px;
+  }
+  .card-body{
+    position: relative;
+    width: 100%;
+  }
+}
+/*end new services*/
+
+/*Services*/
+.service-ind {
+  background: rgb(241, 238, 238);
+  padding: 10px;
+  box-shadow: 0 0 26px rgba(0, 0, 0, .7);
+  transition: transform .5s;
+}
+
+.service-ind:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.btn-home-short {
+  width: 150px;
+  align-self: center;
+  background: var(--myRed);
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: 0.7s;
+  color: #fff;
+}
+
+.btn-home-short:hover {
+  background: var(--myBlue);
+  color: #fff;
+}
+
+
+/*Swiper*/
+.swiper {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.swiper-container {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 100px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 500px;
+  height: 300px;
+}
+@media only screen and (max-width: 570px){
+    .swiper-container {
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .welcome{
+      width: 80%;
+      height: 50%;
+    }
+}

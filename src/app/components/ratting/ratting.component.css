@@ -1,0 +1,79 @@
+.title {
+    color: var(--myDarkRed);
+    font-weight: bold;
+    font-style: italic;
+}
+
+.rating{
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.rating input{
+    display: none;
+}
+.rating label{
+    margin:1em;
+    position: relative;
+    width: 0;
+    height: 7.5rem;
+    cursor: pointer;
+    transition: .5s;
+    filter: grayscale(1);
+    text-align: center;
+    opacity: 0;
+}
+.rating:hover label{
+    width: 7.5rem;
+    opacity: 0.2;
+}
+.rating input:hover + label,
+.rating input:checked + label{
+    filter: grayscale(0);
+    opacity: 1;
+    width: 7.6rem;
+}
+.rating label h4{
+    opacity: 0;
+    transform: translateY(-50px) scale(0);
+    transition: .5s;
+}
+.rating input:hover + label h4,
+.rating input:checked + label h4{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@media screen and (max-width: 766px){
+    .rating label{
+        width: 0;
+        height: 5.5rem;
+    }
+    .rating:hover label{
+        width: 5.5rem;
+    }
+    .rating input:hover + label,
+    .rating input:checked + label{
+        width: 5.6rem;
+    }
+    .rating label h4{
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 465px){
+    .rating label{
+        width: 0;
+        height: 4rem;
+    }
+    .rating:hover label{
+        width: 4rem;
+    }
+    .rating input:hover + label,
+    .rating input:checked + label{
+        width: 4.025rem;
+    }
+    .rating label h4{
+        font-size: .9em;
+    }
+}

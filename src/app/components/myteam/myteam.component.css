@@ -1,0 +1,114 @@
+.title {
+    color: var(--myDarkRed);
+    font-weight: bold;
+    font-style: italic;
+}
+
+.card{
+    background: rgba(46, 46, 46, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.card::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--myDarkRed);
+    clip-path: circle(150px at 80% 20%);
+    transition: .5s ease-in-out;
+}
+
+.card:hover::before{
+    clip-path: circle(300px at 80% -30%);
+}
+
+.card::after{
+    content: 'Team';
+    position: absolute;
+    top: 30%; left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: #cccccc13;
+}
+
+.card .imgBx{
+    transform: translateY(40%);
+    width: 100%;
+    z-index: 100;
+    height: 200px;
+    transition: .5s;
+}
+.card:hover .imgBx{
+    top: 0%;
+    transform: translateY(0%);
+}
+.card .imgBx img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-25deg);
+    width: 100%
+}
+.card .contentBx{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+    transform: translateY(50%);
+}
+.card:hover .contentBx{
+    transform: translateY(0%);
+}
+.card .contentBx h2{
+    position: relative;
+    letter-spacing: 2px;
+    color: #fff;
+}
+.card .contentBx .info2,
+.card .contentBx .info{
+    padding: 8px 20px;
+    transition: .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.card:hover .contentBx .info2{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .7s;
+}
+.card:hover .contentBx .info{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .5s;
+}
+
+.card .contentBx .info h3{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.card .contentBx .info span{
+    text-align: center;
+    transition: .5s;
+}
+
+.card .contentBx .info2 a{
+    border-radius: 10px;
+    width: 180px;
+    align-self: center;
+    cursor: pointer;
+    background: var(--myRed);
+    border-radius: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .8s;
+}
+.card:hover .contentBx .info2 a{
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: .25s;
+}

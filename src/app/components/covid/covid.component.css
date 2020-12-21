@@ -1,0 +1,59 @@
+.title {
+  color: var(--myDarkRed);
+  font-weight: bold;
+  font-style: italic;
+}
+
+.chart {
+  display: block;
+
+}
+
+/*calendar*/
+.form-group.hidden {
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(150, 0, 0);
+  color: white;
+}
+
+.custom-day.faded {
+  background-color: rgba(165, 0, 0, 0.5);
+}
+
+
+/*btn*/
+.btn-reload {
+  width: 180px;
+  font-size: 1em;
+  align-self: center;
+  background: var(--myRed);
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: 0.7s;
+  color: #fff;
+}
+
+.btn-reload:hover {
+  background: var(--myBlue);
+  color: #fff;
+}

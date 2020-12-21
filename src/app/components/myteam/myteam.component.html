@@ -1,0 +1,35 @@
+<section id="myTeam" class="my-5">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center title mb-4">My Team</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div  *ngFor="let employee of employees" class="col-12 col-md-6 col-lg-4 mb-2">
+        <div class="card" >
+          <div class="card-body">
+            <div class="imgBx">
+              <img [src]="employee.image"  alt="name lastname company">
+            </div>
+            <div class="contentBx text-white">
+              <h2 class="card-title">{{employee.name }} {{employee.lastName}}</h2>
+                <div class="info">
+                  <h4>Info About {{employee.name}}:</h4>
+                  <span class="text-white">{{employee.description}} </span>
+                </div>
+                <div class="info2">
+                  <h4>Contact:</h4>
+                  <a class="btn btn-home-short  text-white" target="_blank" [href]="employee.linkedin">Follow Linkedin</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

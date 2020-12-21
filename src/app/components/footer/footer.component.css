@@ -1,0 +1,51 @@
+.bg-footer-up{
+    background: var(--myGray);
+}
+.bg-footer-md{
+    background: #850202;
+}
+.bg-footer-down{
+    background: #690202;
+}
+
+hr{
+    color: white;
+    background: white;
+}
+
+/*Social Media*/
+.btn.btn-rounded {
+    border-radius: 50px
+}
+.btn-facebook {
+    background: #3b579d;
+    color: #ffffff
+}
+
+.btn-youtube {
+    background: #c900ae;
+    color: #ffffff
+}
+
+.btn-twitter {
+    background: #2caae1;
+    color: #ffffff
+}
+
+.btn-facebook:hover,
+ .btn-facebook:focus {
+     background: #2d4278;
+     color: #ffffff
+ }
+
+ .btn-youtube:hover,
+ .btn-youtube:focus {
+     background: #96039b;
+     color: #ffffff
+ }
+
+ .btn-twitter:hover,
+ .btn-twitter:focus {
+     background: #1b8dbf;
+     color: #ffffff
+ }

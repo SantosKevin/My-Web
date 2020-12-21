@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Montserrat';
+}
+
+:root{
+    --myRed: #DF0000;
+    --myDarkRed: #b30202;
+    --myBlack: #1F1D1D;
+    --myBlue: #000796;
+    --myGray: #e2e2e2;
+
+    scroll-behavior: smooth;
+}
+
+.btn-ripples, .btn-ripples-red{
+    position: relative;
+    overflow: hidden;
+}
+.btn-ripples span{
+    position: absolute;
+    background: #fff;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate .6s linear infinite;
+}
+.btn-ripples-red span{
+    position: absolute;
+    background: rgb(121, 11, 11);
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate .6s linear infinite;
+}
+@keyframes animate{
+    0%{
+        width: 0px;
+        height: 0px;
+        opacity: .5;
+    }
+    100%{
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    *{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 576px){
+    *{
+        font-size: 13px;
+    }
+}

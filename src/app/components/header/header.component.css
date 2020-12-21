@@ -1,0 +1,64 @@
+
+
+.bg-header{
+    background: var(--myGray);
+}
+.img-header{
+    display: none;
+}
+
+.word-header{
+    color: var(--myDarkRed);
+
+    letter-spacing: 2px;
+    font-weight: bold;
+
+}
+.btn-word, .navbar-nav li a, .dropdown a{
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--myBlack);
+}
+.login{
+    border: 1px solid var(--myDarkRed);
+}
+.navbar-nav li a, .dropdown a{
+    margin: 0px 10px;
+    padding: 8px;
+    border-radius: 24px;
+    transition: 0.3s;
+}
+
+.navbar-nav li a.active {
+    background: var(--myRed);
+    color: white;
+}
+.navbar-nav li a:hover , .dropdown a:hover{
+    background: var(--myRed);
+    color: white;
+    cursor: pointer;
+}
+
+.bg-btn{
+    background: white;
+}
+
+.myDrop{
+    overflow: hidden;
+}
+
+@media screen and (max-width: 991px){
+    .navbar-nav li a.active{
+        background: transparent;
+        border-radius: 0px;
+        border-bottom: 1px solid var(--myRed);
+        color: var(--myDarkRed);
+    }
+    .navbar-nav li a:hover{
+        border-radius: 0px;
+        background: transparent;
+        border-bottom: 1px solid var(--myRed);
+        color: var(--myDarkRed);
+        cursor: pointer;
+    }
+}
